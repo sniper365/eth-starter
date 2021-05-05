@@ -97,6 +97,14 @@ class App extends Component {
   }
 
   render() {
+    let content = this.state.loading ? 
+      <h1 id="loader">Loading...</h1> : 
+      <Main 
+        daiTokenBalance={this.state.daiTokenBalance}
+        alexxTokenBalance={this.state.alexxTokenBalance}
+        stakingBalance={this.state.stakingBalance}
+      />;
+
     return (
       <div>
         <Navbar account={this.state.account} />
@@ -110,7 +118,7 @@ class App extends Component {
                 >
                 </a>
 
-                <Main />
+                { content }
 
               </div>
             </main>
